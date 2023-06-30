@@ -7,9 +7,51 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Kasi LifeStyle | Shoe Catalog</title>
 
+        <!-- handlebars template -->
+
+        <script type="text/x-template" class="shoeTemplate" defer>
+
+            {{#each this}}
+            <div class="card" style="width: 18em;">
+                <!-- image element -->
+                <img src="{{img}}" alt="" srcset="" width="100%">
+
+                <div class="card-body">
+
+                    <div class="card-subtitle">
+                        <strong>BRAND NAME: {{brand}}</strong>
+                    </div>
+
+                    <span class="card-text">
+                        <strong>AVAILABLE IN STOCK:</strong> {{"in-stock"}}
+                    </span>
+
+                    <span class="card-text">
+                        <strong>COLOUR:</strong> {{color}}
+                    </span>
+
+                    <span class="card-text">
+                        <strong>AVAILABLE SIZES:</strong> {{size}}
+                    </span>
+
+                </div>
+
+              </div>
+              {{/each}}
+
+        </script>
+
+        <!-- handlebars link -->
+
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
         <!-- css links -->
         <link rel="stylesheet" href="../style-sheets/normalize.css">
         <link rel="stylesheet" href="../style-sheets/style.css">
+
+        <!-- bootstratp link -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
 
     </head>
 
@@ -19,30 +61,64 @@
         <div class="sections">
 
             <!-- header section -->
-            <header class="header-section">
+            <header class="headerSection">
 
-                <div class="nav-bar-section">
+                <div class="navBarSection">
                     <!-- nav bar code below -->
 
                 </div>
 
             </header>
 
-            <div class="about-section">
+            <div class="aboutSection">
                 
                 <strong>
                     <h1>Kasi LifeStyle <br>Shoes</h1>
                 </strong>
 
+                <!-- anchor tags elements -->
+
+                <div class="anchorSection">
+
+                    <!-- all the shoes -->
+
+                    <strong>
+                        <a href="#" class="shoesForAll">ALL</a>
+                    </strong>
+
+                    <!-- men shoes -->
+
+                    <strong>
+                        <a href="#" class="shoesForMen">MEN</a>
+                    </strong>
+
+                    <!-- women shoes -->
+
+                    <strong>
+                        <a href="#" class="shoesForWomen">WOMEN</a>
+                    </strong>
+
+                    <!-- kids shoes -->
+
+                    <strong>
+                        <a href="#" class="shoesForKids">KIDS</a>
+                    </strong>
+
+                </div>
+
+                <!-- section for the dropdowns here -->
+
+                <div class="dropdownSection">
+
+                </div>
+
             </div>
 
-            <div class="main-section">
+            <div class="mainSection">
                 <!-- main code below -->
 
-                <div class="shoes-section">
-                    <!-- shoes section code below -->
-                    
-                </div>
+                <!-- element to show the shoes -->
+                <div class="shoesSection"></div>
 
             </div>
 
@@ -54,5 +130,10 @@
 
     <script src="../app/shoe-catalog.app.js"></script>
     <script src="../app/shoe-catalog.dom.js"></script>
+    <script src="../handlebars/shoes.js"></script>
+
+    <!-- bootstratp javascript links -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
 
 </html>
