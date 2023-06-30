@@ -255,7 +255,7 @@ function ShoeCatalogApp(updatedShoesData) {
 
     let shoes = [];
 
-    function searchForShoes(shoeBrand, shoeColor, shoeSize) {
+    function searchForShoes(shoeBrand, shoeColor, shoeSize, priceRange) {
         for (let i = 0; i < shoesData.length; i++) {
             const shoe = shoesData[i];
 
@@ -282,6 +282,9 @@ function ShoeCatalogApp(updatedShoesData) {
                 // I pushed the all the shoe data because I want to show the data into the screen
                 shoes.push(shoe);
             };
+
+            // create logic for when the user decides to search for shoes according to their price range below:
+            
         };
     };
 
