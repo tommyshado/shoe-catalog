@@ -1,5 +1,12 @@
 // dom elements references
 
+// anchor tags elements reference
+
+const shoesForAll = document.querySelector(".shoesForAll");
+const shoesForMen = document.querySelector(".shoesForMen");
+const shoesForWomen = document.querySelector(".shoesForWomen");
+const shoesForKids = document.querySelector(".shoesForKids");
+
 // element reference to show the shoes
 
 // functions
@@ -17,7 +24,14 @@ if (localStorage["setShoesData"]) {
 
 const appInstance = ShoeCatalogApp(updatedShoesData);
 
-// events
+// events listeners
+
+// anchor elements event listeners
+
+shoesForAll.addEventListener("click", function() {
+	// when the user clicks the <ALL> element show all the shoes
+	
+});
 
 // code for local storage
 
