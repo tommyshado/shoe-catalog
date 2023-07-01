@@ -11,7 +11,7 @@ let shoeTemplate = Handlebars.compile(templateSource);
 const shoesSection = document.querySelector(".shoesSection");
 
 // get the array reference that contains the shoes into the variable from the factory function instance
-let shoes = instanceOfShoeCatalog.getShoesData();
+let shoes = instanceOfShoeCatalog.foundShoes();
 
 // render the shoes data into the template
 let shoesDataHtml = shoeTemplate(shoes);
