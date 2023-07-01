@@ -12,26 +12,26 @@
         <script type="text/x-template" class="shoeTemplate" defer>
 
             {{#each this}}
-            <div class="card" style="width: 25em;">
+            <div class="shoeCard boxModel">
                 <!-- image element -->
-                <img src="{{img}}" alt="" srcset="" width="100%">
+                <img src="{{img}}" alt="" srcset="" width="25%">
 
-                <div class="card-body">
+                <div class="cardBody">
 
-                    <div class="card-subtitle">
+                    <div class="cardSubtitle">
                         <strong>BRAND NAME: {{brand}}</strong>
                     </div>
 
-                    <div class="card-text">
+                    <div class="cardText">
                         <strong>AVAILABLE IN STOCK:</strong> {{"in-stock"}}
                     </div>
 
-                    <div class="card-text">
+                    <div class="cardText">
                         <strong>COLOUR:</strong> {{color}}
                     </div>
 
-                    <div class="card-text">
-                        <strong>AVAILABLE SIZES:</strong> {{size}}
+                    <div class="cardText">
+                        <strong>AVAILABLE SIZES:</strong><span> {{size}}</span>
                     </div>
 
                 </div>
@@ -50,7 +50,7 @@
         <link rel="stylesheet" href="../style-sheets/style.css">
 
         <!-- bootstratp link -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"> -->
 
 
     </head>
@@ -83,25 +83,25 @@
                     <!-- all the shoes -->
 
                     <strong>
-                        <a href="#" class="shoesForAll">ALL</a>
+                        <a href="#" class="shoesForAll anchorText">ALL</a>
                     </strong>
 
                     <!-- men shoes -->
 
                     <strong>
-                        <a href="#" class="shoesForMen">MEN</a>
+                        <a href="#" class="shoesForMen anchorText">MEN</a>
                     </strong>
 
                     <!-- women shoes -->
 
                     <strong>
-                        <a href="#" class="shoesForWomen">WOMEN</a>
+                        <a href="#" class="shoesForWomen anchorText">WOMEN</a>
                     </strong>
 
                     <!-- kids shoes -->
 
                     <strong>
-                        <a href="#" class="shoesForKids">KIDS</a>
+                        <a href="#" class="shoesForKids anchorText">KIDS</a>
                     </strong>
 
                 </div>
@@ -133,7 +133,7 @@
     <script src="../handlebars/shoes.js"></script>
 
     <!-- bootstratp javascript links -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script> -->
 
 </html>
