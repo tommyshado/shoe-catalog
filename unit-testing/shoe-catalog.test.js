@@ -465,132 +465,95 @@ describe("Shoe Catalog App Unit Testing", function () {
 
     describe("Shopping cart feature unit testing", function () {
 
-        it("should be able to add shoes to the cart and decrease the number of the shoes in stock", function () {
-            // adding to the shopping cart
-            appInstance.addToCart();
-            // decreaseInStock() takes in shoe identifier 2 as an argument
-            appInstance.addToCartFunctionality().decreaseInStock(2);
-            appInstance.addToCart();
-            appInstance.addToCartFunctionality().decreaseInStock(2);
-            appInstance.addToCart();
-            appInstance.addToCartFunctionality().decreaseInStock(3);
-            appInstance.addToCart();
-            appInstance.addToCartFunctionality().decreaseInStock(3);
+        it("should be able to add shoes to the cart and decrease the number of the shoes in stock when given a shoe id", function () {
+            // adding to the shopping cart when given...
 
-            // number of shoes in the shopping cart
-            assert.equal(4, appInstance.getNumAddedToCart());
+            // one shoe
+            appInstance.addShoeToCart(2);
+            appInstance.addShoeToCart(2);
+
+            // another shoe
+            appInstance.addShoeToCart(3);
+            appInstance.addShoeToCart(3);
+
+
+            // number of shoes added in the shopping cart
+            assert.equal(4, appInstance.addedToCart());
 
             // availableInStock() method checks the stock available after we added to the shopping cart
 
-            // for shoe identifier 2
+            // available shoes for shoe id
             assert.equal(3, appInstance.avaliableShoeStock(2));
 
-            // for shoe identifier 3
+            // available shoes for shoe id
             assert.equal(5, appInstance.avaliableShoeStock(3));
 
         });
 
-        it("should be able to get the total price of the shoes added to the cart", function () {
-            // adding to the shopping cart
-            appInstance.addToCart();
-            // decreaseInStock() takes in shoe identifier 2 as an argument
-            appInstance.addToCartFunctionality().decreaseInStock(2);
-            appInstance.addToCart();
-            appInstance.addToCartFunctionality().decreaseInStock(2);
-            appInstance.addToCart();
-            appInstance.addToCartFunctionality().decreaseInStock(3);
-            appInstance.addToCart();
-            appInstance.addToCartFunctionality().decreaseInStock(3);
+        it("should be able to calculate the total price of the shoes added to the cart when given a shoe id", function () {
+            // calculating the total shoes price for...
 
-            // calculating the total shoes price
+            // one shoe
+            appInstance.addShoeToCart(2)
+            appInstance.addShoeToCart(2)
 
-            appInstance.addToCartFunctionality().addShoeCost(2);
-            appInstance.addToCartFunctionality().addShoeCost(2);
-
-            appInstance.addToCartFunctionality().addShoeCost(3);
-            appInstance.addToCartFunctionality().addShoeCost(3);
+            // another shoe
+            appInstance.addShoeToCart(3)
+            appInstance.addShoeToCart(3)
 
             assert.equal(4400, appInstance.getTotalShoesPrice());
 
         });
 
         it("should be able to remove shoes from the shoping cart and increase the number of the shoes in stock", function () {
-            // adding to the shopping cart
-            appInstance.addToCart();
-            // decreaseInStock() takes in shoe identifier 2 as an argument
-            appInstance.addToCartFunctionality().decreaseInStock(2);
-            appInstance.addToCart();
-            appInstance.addToCartFunctionality().decreaseInStock(2);
-            appInstance.addToCart();
-            appInstance.addToCartFunctionality().decreaseInStock(3);
-            appInstance.addToCart();
-            appInstance.addToCartFunctionality().decreaseInStock(3);
+            // adding to the shopping cart when given...
+
+            // one shoe
+            appInstance.addShoeToCart(2);
+            appInstance.addShoeToCart(2);
+
+            // another shoe
+            appInstance.addShoeToCart(3);
+            appInstance.addShoeToCart(3);
 
             // removing shoes from the shopping cart
-            appInstance.removeFromCart();
-            // in stock will increase
-            appInstance.removeFromCartFunctionality().increaseInStock(2);
-            appInstance.removeFromCart();
-            appInstance.removeFromCartFunctionality().increaseInStock(2);
-            appInstance.removeFromCart();
-            // in stock will increase
-            appInstance.removeFromCartFunctionality().increaseInStock(3);
-            appInstance.removeFromCart();
-            appInstance.removeFromCartFunctionality().increaseInStock(3);
+
+            appInstance.removeShoeFromCart(2);
+            appInstance.removeShoeFromCart(3);
+
 
             // number of shoes in the shopping cart
-            assert.equal(0, appInstance.getNumAddedToCart());
+            assert.equal(2, appInstance.addedToCart());
 
             // assert for shoe identifier 2
-            assert.equal(5, appInstance.avaliableShoeStock(2));
+            assert.equal(4, appInstance.avaliableShoeStock(2));
 
             // assert for shoe identifier 3
-            assert.equal(7, appInstance.avaliableShoeStock(3));
+            assert.equal(6, appInstance.avaliableShoeStock(3));
 
         });
 
-        it("should be able to remove shoes from the shoping cart, increase the number of the shoes in stock and minus the total shoe cost by the shoe price", function () {
-            // adding to the shopping cart
+        it("should be able to remove shoes from the shopping cart, increase the number of the shoes in stock and minus the total shoe cost by the shoe price", function () {
+            // adding to the shopping cart when given...
 
-            appInstance.addToCart();
-            // decreaseInStock() takes in shoe identifier 2 as an argument
-            appInstance.addToCartFunctionality().decreaseInStock(2);
-            // adding the price of the shoe to the shopping cart
-            appInstance.addToCartFunctionality().addShoeCost(2);
-            appInstance.addToCart();
-            appInstance.addToCartFunctionality().decreaseInStock(2);
-            // adding the price of the shoe to the shopping cart
-            appInstance.addToCartFunctionality().addShoeCost(2);
-            appInstance.addToCart();
-            appInstance.addToCartFunctionality().decreaseInStock(3);
-            // adding the price of the shoe to the shopping cart
-            appInstance.addToCartFunctionality().addShoeCost(3);
-            appInstance.addToCart();
-            appInstance.addToCartFunctionality().decreaseInStock(3);
-            // adding the price of the shoe to the shopping cart
-            appInstance.addToCartFunctionality().addShoeCost(3);
+            // one shoe
+            appInstance.addShoeToCart(2);
+            appInstance.addShoeToCart(2);
+
+            // another shoe
+            appInstance.addShoeToCart(3);
+            appInstance.addShoeToCart(3);
 
             // removing shoes from the shopping cart
 
-            appInstance.removeFromCart();
-            // in stock will increase
-            appInstance.removeFromCartFunctionality().increaseInStock(2);
-            // minus the shoe total price
-            appInstance.removeFromCartFunctionality().minusShoeCost(2);
-            appInstance.removeFromCart();
-            appInstance.removeFromCartFunctionality().increaseInStock(2);
-            // minus the shoe total price
-            appInstance.removeFromCartFunctionality().minusShoeCost(2);
-            appInstance.removeFromCart();
-            // in stock will increase
-            appInstance.removeFromCartFunctionality().increaseInStock(3);
-            // minus the shoe total price
-            appInstance.removeFromCartFunctionality().minusShoeCost(3);
-            appInstance.removeFromCart();
-            appInstance.removeFromCartFunctionality().increaseInStock(3);
+            appInstance.removeShoeFromCart(2);
+            appInstance.removeShoeFromCart(2);
+
+            appInstance.removeShoeFromCart(3);
+            appInstance.removeShoeFromCart(3);
 
             // number of shoes in the shopping cart
-            assert.equal(0, appInstance.getNumAddedToCart());
+            assert.equal(0, appInstance.addedToCart());
 
             // assert for shoe identifier 2
             assert.equal(5, appInstance.avaliableShoeStock(2));
@@ -599,20 +562,20 @@ describe("Shoe Catalog App Unit Testing", function () {
             assert.equal(7, appInstance.avaliableShoeStock(3));
 
             // shoe total cost
-            assert.equal(1100, appInstance.getTotalShoesPrice());
+            assert.equal(0, appInstance.getTotalShoesPrice());
         });
 
         it("should be able to show the shoes added to cart when the user navigate into the shopping cart page in the application", function () {
-            appInstance.addToCartFunctionality().addShoeToCart(2);
-            appInstance.addToCartFunctionality().addShoeToCart(3);
-            appInstance.addToCartFunctionality().addShoeToCart(6);
+            appInstance.addShoeToCart(2);
+            appInstance.addShoeToCart(3);
+            appInstance.addShoeToCart(6);
 
             assert.deepEqual([
                 {
                     brand: "converse",
                     size: [7, 8, 9, 10],
                     color: "black",
-                    "in-stock": 5,
+                    "in-stock": 4,
                     img: "../public/converse2.png",
                     price: 1100,
 
@@ -623,7 +586,7 @@ describe("Shoe Catalog App Unit Testing", function () {
                     brand: "converse",
                     size: [7, 8, 9, 10],
                     color: "white",
-                    "in-stock": 7,
+                    "in-stock": 6,
                     img: "../public/converse3.png",
                     price: 1100,
 
@@ -634,7 +597,7 @@ describe("Shoe Catalog App Unit Testing", function () {
                     brand: "adidas",
                     size: [7, 8, 9, 10, 11, 12],
                     color: "white",
-                    "in-stock": 5,
+                    "in-stock": 4,
                     img: "../public/adidas1.png",
                     price: 1600,
 
@@ -648,20 +611,20 @@ describe("Shoe Catalog App Unit Testing", function () {
         it("should be able to remove the shoes added to cart when the user navigate into the shopping cart page in the application and removes a shoe", function () {
             // adding shoes to the shopping cart
 
-            appInstance.addToCartFunctionality().addShoeToCart(2);
-            appInstance.addToCartFunctionality().addShoeToCart(3);
-            appInstance.addToCartFunctionality().addShoeToCart(6);
+            appInstance.addShoeToCart(2);
+            appInstance.addShoeToCart(3);
+            appInstance.addShoeToCart(6);
 
             // removing shoes from the shopping cart
 
-            appInstance.removeFromCartFunctionality().removeShoeFromCart(2);
+            appInstance.removeShoeFromCart(2);
 
             assert.deepEqual([
                 {
                     brand: "converse",
                     size: [7, 8, 9, 10],
                     color: "white",
-                    "in-stock": 7,
+                    "in-stock": 6,
                     img: "../public/converse3.png",
                     price: 1100,
 
@@ -672,7 +635,7 @@ describe("Shoe Catalog App Unit Testing", function () {
                     brand: "adidas",
                     size: [7, 8, 9, 10, 11, 12],
                     color: "white",
-                    "in-stock": 5,
+                    "in-stock": 4,
                     img: "../public/adidas1.png",
                     price: 1600,
 
@@ -686,25 +649,25 @@ describe("Shoe Catalog App Unit Testing", function () {
         it("should be able to remove more shoes added to cart when the user navigate into the shopping cart page in the application and removes a shoe", function () {
             // adding shoes to the shopping cart
 
-            appInstance.addToCartFunctionality().addShoeToCart(2);
-            appInstance.addToCartFunctionality().addShoeToCart(3);
-            appInstance.addToCartFunctionality().addShoeToCart(6);
-            appInstance.addToCartFunctionality().addShoeToCart(7);
-            appInstance.addToCartFunctionality().addShoeToCart(10);
-            appInstance.addToCartFunctionality().addShoeToCart(12);
+            appInstance.addShoeToCart(2);
+            appInstance.addShoeToCart(3);
+            appInstance.addShoeToCart(6);
+            appInstance.addShoeToCart(7);
+            appInstance.addShoeToCart(10);
+            appInstance.addShoeToCart(12);
 
             // removing shoes from the shopping cart
 
-            appInstance.removeFromCartFunctionality().removeShoeFromCart(2);
-            appInstance.removeFromCartFunctionality().removeShoeFromCart(10);
-            appInstance.removeFromCartFunctionality().removeShoeFromCart(12);
+            appInstance.removeShoeFromCart(2);
+            appInstance.removeShoeFromCart(10);
+            appInstance.removeShoeFromCart(12);
 
             assert.deepEqual([
                 {
                     brand: "converse",
                     size: [7, 8, 9, 10],
                     color: "white",
-                    "in-stock": 7,
+                    "in-stock": 6,
                     img: "../public/converse3.png",
                     price: 1100,
 
@@ -715,7 +678,7 @@ describe("Shoe Catalog App Unit Testing", function () {
                     brand: "adidas",
                     size: [7, 8, 9, 10, 11, 12],
                     color: "white",
-                    "in-stock": 5,
+                    "in-stock": 4,
                     img: "../public/adidas1.png",
                     price: 1600,
 
@@ -726,7 +689,7 @@ describe("Shoe Catalog App Unit Testing", function () {
                     brand: "adidas",
                     size: [7, 8, 9, 10, 11, 12, 13, 14],
                     color: "white",
-                    "in-stock": 5,
+                    "in-stock": 4,
                     img: "../public/adidas2.png",
                     price: 2100,
 
