@@ -1,0 +1,40 @@
+/* body styling */
+
+/* anchor section styling */
+
+.anchorText {
+    text-decoration-line: none;
+};
+
+/* shoes section styling */
+
+.boxModel {
+    margin: 1em;
+    padding: 1.5em;
+};
+
+/* styling shoes card */
+.shoesCard {
+    flex: 1;
+    width: 25%;
+    border-radius: 0.5em;
+};
+
+.cardBody {
+    font-size: 1em;
+    text-align: center;
+};
+
+.cardSubtitle {
+    font-weight: bold;
+};
+
+span {
+    color: #457B9D;
+};
+
+/* section for displaying the shoes */
+.shoesSection {
+    display: flex;
+    flex-wrap: wrap;
+};
