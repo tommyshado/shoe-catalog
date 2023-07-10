@@ -9,7 +9,7 @@ describe("Shoe Catalog App Unit Testing", function () {
     describe("Search for shoes feature logic unit testing", function () {
 
         it("should be able to search for a shoe when given a shoe brand", function () {
-            appInstance.searchForShoes("adidas", null, null);
+            appInstance.searchForShoes("adidas", '', '');
 
             assert.deepEqual(
                 [
@@ -78,7 +78,7 @@ describe("Shoe Catalog App Unit Testing", function () {
         });
 
         it("should be able to search for a shoe when given a shoe color", function () {
-            appInstance.searchForShoes(null, "purple", null);
+            appInstance.searchForShoes('', "purple", '');
 
             assert.deepEqual(
                 [
@@ -108,7 +108,7 @@ describe("Shoe Catalog App Unit Testing", function () {
         });
 
         it("should be able to search for a shoe when given a shoe size", function () {
-            appInstance.searchForShoes(null, null, 12);
+            appInstance.searchForShoes('', '', 12);
 
             assert.deepEqual(
                 [
@@ -165,7 +165,7 @@ describe("Shoe Catalog App Unit Testing", function () {
         });
 
         it("should be able to search for a shoe when given a shoe size and a shoe color", function () {
-            appInstance.searchForShoes(null, "pink", 6);
+            appInstance.searchForShoes('', "pink", 6);
 
             assert.deepEqual(
                 [
