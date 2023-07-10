@@ -270,9 +270,9 @@ function ShoeCatalogApp(updatedShoesData) {
             // shoesData object, if true then..
 
             if (
-                (shoeBrand === shoe.brand && shoeColor === null && shoeSize === null) ||
-                (shoeBrand === null && shoeColor === shoe.color && shoeSize === null) ||
-                (shoeBrand === shoe.brand && shoeColor === shoe.color && shoeSize === null)
+                (shoeBrand === shoe.brand && shoeColor === '' && shoeSize === '') ||
+                (shoeBrand === '' && shoeColor === shoe.color && shoeSize === '') ||
+                (shoeBrand === shoe.brand && shoeColor === shoe.color && shoeSize === '')
             ) {
 
                 // push the shoe into the shoes array
@@ -283,8 +283,8 @@ function ShoeCatalogApp(updatedShoesData) {
             // shoesData object, if true then..
 
             if (
-                (shoeBrand === null && shoeColor === null && shoe.size.includes(shoeSize)) ||
-                (shoeBrand === null && shoeColor === shoe.color && shoe.size.includes(shoeSize)) ||
+                (shoeBrand === '' && shoeColor === '' && shoe.size.includes(shoeSize)) ||
+                (shoeBrand === '' && shoeColor === shoe.color && shoe.size.includes(shoeSize)) ||
                 (shoeBrand === shoe.brand && shoeColor === shoe.color && shoe.size.includes(shoeSize))
             ) {
 
